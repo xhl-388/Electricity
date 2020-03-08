@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ThronCheck : MonoBehaviour
 {
     public Transform checkPoint;
+    private GameObject gameCon;
     private float checkRadius = 0.1f;
     private float checkBreak=0.1f;
     private float checkTime;
@@ -14,6 +14,7 @@ public class ThronCheck : MonoBehaviour
     {
         checkTime = Time.time;
         aimLayer = LayerMask.NameToLayer("Player");
+        gameCon = GameObject.Find("GameManager");
     }
     private void FixedUpdate()
     {
@@ -22,7 +23,7 @@ public class ThronCheck : MonoBehaviour
             Collider2D colliders = Physics2D.OverlapCircle(checkPoint.position, checkRadius,1<<aimLayer);
             if (colliders)
             {
-                SceneManager.LoadScene("Main");
+                gameCon.GetComponent<GameController>().Fail();
             }
         }
     }
