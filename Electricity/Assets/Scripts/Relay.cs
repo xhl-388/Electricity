@@ -27,7 +27,7 @@ public class Relay : MonoBehaviour
         if (target != null)
         {
             this.gameObject.GetComponent<Collider2D>().enabled = false;
-            this.gameObject.GetComponent<Rigidbody2D>().Sleep();
+            this.gameObject.GetComponent<Rigidbody2D>().simulated=false;
             if (target == playerA)
             {
                 transform.Translate((getPos.position - transform.position)*followSpeed*Time.deltaTime);
@@ -70,6 +70,6 @@ public class Relay : MonoBehaviour
     {
         target = null;
         this.gameObject.GetComponent<Collider2D>().enabled = true;
-        this.gameObject.GetComponent<Rigidbody2D>().WakeUp();
+        this.gameObject.GetComponent<Rigidbody2D>().simulated=true;
     }
 }

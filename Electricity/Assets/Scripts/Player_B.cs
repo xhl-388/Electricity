@@ -22,6 +22,7 @@ public class Player_B : MonoBehaviour
     public Transform rightHand;
     private float handSize=0.05f;
     private GameObject holdingRelay=null;
+    private bool cantControl = false;
     private void Start()
     {
         playerA = GameObject.Find("Player_A");
@@ -33,6 +34,10 @@ public class Player_B : MonoBehaviour
     }
     private void Update()
     {
+        if (cantControl)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             if (relayInRadius != null && holdingRelay == null)
@@ -61,7 +66,10 @@ public class Player_B : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        cc.Move(move, jump);
+        if (!cantControl)
+        {
+            cc.Move(move, jump);
+        }
         Collider2D collider1 = Physics2D.OverlapCircle(leftHand.position, handSize, 1 << relayLayer);
         Collider2D collider2 = Physics2D.OverlapCircle(rightHand.position, handSize, 1 << relayLayer);
         if (collider1)
@@ -105,5 +113,13 @@ public class Player_B : MonoBehaviour
                 }
             }
         }
+    }
+    public void GotDelivered()
+    {
+        cantControl = true;
+        this.GetComponent<Collider2D>().enabled = false;
+        rigid.simulated = false;
+        anim.SetFloat("speed_B", 0f);
+        anim.SetBool("jump_B", false);
     }
 }

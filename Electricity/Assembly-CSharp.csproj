@@ -64,11 +64,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CharacterController2D.cs" />
+    <Compile Include="Assets\Scripts\DeliveryController.cs" />
     <Compile Include="Assets\Scripts\ElectricController.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\GateController.cs" />
+    <Compile Include="Assets\Scripts\LiftController.cs" />
     <Compile Include="Assets\Scripts\Player_A.cs" />
     <Compile Include="Assets\Scripts\Player_B.cs" />
     <Compile Include="Assets\Scripts\Relay.cs" />
+    <Compile Include="Assets\Scripts\SwitchController.cs" />
     <Compile Include="Assets\Scripts\ThronCheck.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Origin/projectmemo/Electricity/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
