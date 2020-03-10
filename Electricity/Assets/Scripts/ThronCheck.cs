@@ -10,6 +10,7 @@ public class ThronCheck : MonoBehaviour
     private float checkBreak=0.1f;
     private float checkTime;
     private LayerMask aimLayer;
+    private bool isFail = false;
     private void Start()
     {
         checkTime = Time.time;
@@ -18,11 +19,16 @@ public class ThronCheck : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (isFail)
+        {
+            return;
+        }
         if (checkTime + checkBreak < Time.time)
         {
             Collider2D colliders = Physics2D.OverlapCircle(checkPoint.position, checkRadius,1<<aimLayer);
             if (colliders)
             {
+                isFail = true;
                 gameCon.GetComponent<GameController>().Fail();
             }
         }

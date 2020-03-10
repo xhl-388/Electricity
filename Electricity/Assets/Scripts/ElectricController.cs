@@ -16,6 +16,7 @@ public class ElectricController : MonoBehaviour
     public GameObject fixedRelay2;
     private GameObject relay1;
     private GameObject relay2;
+    private bool isFail=false;
     private void Start()
     {
         gameCon = GameObject.Find("GameManager");
@@ -252,9 +253,10 @@ public class ElectricController : MonoBehaviour
     }
     void NotLinked()
     {
-        if (Time.time > deadTime)
+        if (Time.time > deadTime&&!isFail)
         {
             gameCon.GetComponent<GameController>().Fail();
+            isFail = true;
         }
     }
     void Linked()

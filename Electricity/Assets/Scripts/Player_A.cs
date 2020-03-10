@@ -22,7 +22,8 @@ public class Player_A : MonoBehaviour
     public Transform rightHand;
     private float handSize = 0.1f;
     private GameObject holdingRelay=null;
-    private bool cantControl = false;
+    [HideInInspector]
+    public bool cantControl = false;
     private bool hasBelt = false;
     private LayerMask belt;
     private void Start()

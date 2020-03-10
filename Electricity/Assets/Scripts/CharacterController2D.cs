@@ -13,10 +13,12 @@ public class CharacterController2D : MonoBehaviour
     private float nextGroundCheckTime;
     private Rigidbody2D rigidBody2D;
     public bool isGrounded { get; private set; }
-
+    public AudioClip jumpAudio;
+    private AudioSource audioSource;
     private void Awake()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
     private void FixedUpdate()
     {
@@ -56,6 +58,7 @@ public class CharacterController2D : MonoBehaviour
             }
         if (_isGrounded && jump)
         {
+            audioSource.PlayOneShot(jumpAudio,1);
             _isGrounded = false;
             rigidBody2D.AddForce(new Vector2(0f, jumpForce));
             nextGroundCheckTime = Time.time + groundCheckBreak;
