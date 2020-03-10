@@ -7,6 +7,7 @@ public class Relay : MonoBehaviour
     [HideInInspector]
     public List<GameObject> listRelay;
     private GameObject playerA;
+    private Player_A playerACon;
     private GameObject playerB;
     private Transform getPos;
     private Transform getPos2;
@@ -19,6 +20,7 @@ public class Relay : MonoBehaviour
         listRelay = new List<GameObject>();
         playerA = GameObject.Find("Player_A");
         playerB = GameObject.Find("Player_B");
+        playerACon = playerA.GetComponent<Player_A>();
         getPos = GameObject.Find("Getpos").transform;
         getPos2 = GameObject.Find("Getpos2").transform;
     }
@@ -37,7 +39,7 @@ public class Relay : MonoBehaviour
                 transform.Translate((getPos2.position - transform.position) * followSpeed * Time.deltaTime);
             }
         }
-        if (!playerA.GetComponent<Player_A>().isLinkedDirectly)
+        if (!playerACon.isLinkedDirectly)
         {
             if (listRelay.Contains(playerB))
             {

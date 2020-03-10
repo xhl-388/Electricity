@@ -20,9 +20,11 @@ public class Player_B : MonoBehaviour
     private GameObject relayInRadius;
     public Transform leftHand;
     public Transform rightHand;
-    private float handSize=0.05f;
+    private float handSize=0.1f;
     private GameObject holdingRelay=null;
     private bool cantControl = false;
+    private bool hasBelt = false;
+    private LayerMask belt;
     private void Start()
     {
         playerA = GameObject.Find("Player_A");
@@ -31,6 +33,11 @@ public class Player_B : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         relayLayer = LayerMask.NameToLayer("Relay");
+        if (GameObject.FindWithTag("Conveyorbelt"))
+        {
+            hasBelt = true;
+            belt = LayerMask.NameToLayer("Conveyorbelt");
+        }
     }
     private void Update()
     {
@@ -66,6 +73,14 @@ public class Player_B : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (hasBelt)
+        {
+            Collider2D collider = Physics2D.OverlapCircle(cc.groundCheck.position, 0.1f, 1 << belt);
+            if (collider)
+            {
+                rigid.AddForce(new Vector2(-60f, 0));
+            }
+        }
         if (!cantControl)
         {
             cc.Move(move, jump);

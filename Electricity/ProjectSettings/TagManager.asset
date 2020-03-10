@@ -7,6 +7,7 @@ TagManager:
   - player
   - Relay
   - Gate
+  - Conveyorbelt
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Player
   - Relay
   - Delivery
-  - 
+  - Conveyorbelt
   - 
   - 
   - 

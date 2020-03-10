@@ -5,7 +5,7 @@ using UnityEngine;
 public class LiftController : MonoBehaviour
 {
     private int dir = 1;
-    private float speed = 1.7f;
+    public float speed = 1.7f;
     private float timeToExtreme;
     private float nextStopTime;
     private float stopTime=1f;

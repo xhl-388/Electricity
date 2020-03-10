@@ -64,8 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CharacterController2D.cs" />
+    <Compile Include="Assets\Scripts\Collapse.cs" />
     <Compile Include="Assets\Scripts\DeliveryController.cs" />
     <Compile Include="Assets\Scripts\ElectricController.cs" />
+    <Compile Include="Assets\Scripts\FixedRelay1.cs" />
+    <Compile Include="Assets\Scripts\FixedRelay2.cs" />
+    <Compile Include="Assets\Scripts\FixedRelay3.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GateController.cs" />
     <Compile Include="Assets\Scripts\LiftController.cs" />
