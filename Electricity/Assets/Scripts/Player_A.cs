@@ -26,8 +26,12 @@ public class Player_A : MonoBehaviour
     public bool cantControl = false;
     private bool hasBelt = false;
     private LayerMask belt;
+    private bool wasJumping;
+    private bool isJumping;
+    private Animator dirtAnim;
     private void Start()
     {
+        dirtAnim = GameObject.Find("Dirt").GetComponent<Animator>();
         playerB = GameObject.Find("Player_B");
         cc = GetComponent<CharacterController2D>();
         rigid = GetComponent<Rigidbody2D>();
@@ -71,9 +75,19 @@ public class Player_A : MonoBehaviour
         {
             anim.SetBool("jump", true);
         }
+        isJumping = anim.GetBool("jump");
+        if (dirtAnim.GetBool("IsDirt"))
+        {
+            dirtAnim.SetBool("IsDirt", false);
+        }
+        if (wasJumping && !isJumping)
+        {
+            dirtAnim.SetBool("IsDirt", true);
+        }
     }
     private void FixedUpdate()
     {
+        wasJumping = anim.GetBool("jump");
         if (hasBelt)
         {
             Collider2D collider = Physics2D.OverlapCircle(cc.groundCheck.position, 0.1f, 1 << belt);

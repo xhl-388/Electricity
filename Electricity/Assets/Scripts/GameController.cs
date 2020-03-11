@@ -12,9 +12,12 @@ public class GameController : MonoBehaviour
     private AudioSource audioSource;
     private GameObject playerA;
     private GameObject playerB;
+    private GameObject bgm;
+    private bool isReadyToLoad = false;
+    private Animator uiAnim;
     IEnumerator LoadNextScene()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         if (currentSceneIndex != 6)
         {
             audioSource.PlayOneShot(succeedAudio);
@@ -31,16 +34,29 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(currentSceneIndex);
     }
+    IEnumerator UIAnim()
+    {
+        yield return new WaitForSeconds(3f);
+        uiAnim.enabled = true;
+    }
     private void Start()
     {
+        bgm = GameObject.Find("BGM");
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         audioSource = GetComponent<AudioSource>();
         playerA = GameObject.Find("Player_A");
         playerB = GameObject.Find("Player_B");
+        if(currentSceneIndex!=7)
+        uiAnim = GameObject.Find("UIAnimation").GetComponent<Animator>();
     }
     public void Fail()
     {
+        if (isReadyToLoad)
+        {
+            return;
+        }
         audioSource.PlayOneShot(failAudio);
+        bgm.GetComponent<AudioSource>().mute = true;
         playerA.GetComponent<Player_A>().cantControl = true;
         playerB.GetComponent<Player_B>().cantControl = true;
         playerA.GetComponent<Animator>().SetBool("jump", false);
@@ -50,9 +66,18 @@ public class GameController : MonoBehaviour
         playerB.GetComponent<Animator>().SetFloat("speed_B", 0f);
         playerB.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         StartCoroutine(Restart());
+        StartCoroutine(UIAnim());
+        isReadyToLoad = true;
     }
     public void Succeed()
     {
+        if (isReadyToLoad)
+        {
+            return;
+        }
+        bgm.GetComponent<AudioSource>().mute = true;
         StartCoroutine(LoadNextScene());
+        StartCoroutine(UIAnim());
+        isReadyToLoad = true;
     }
 }

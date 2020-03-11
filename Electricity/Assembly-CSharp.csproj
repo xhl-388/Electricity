@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\CharacterController2D.cs" />
     <Compile Include="Assets\Scripts\Collapse.cs" />
     <Compile Include="Assets\Scripts\DeliveryController.cs" />
+    <Compile Include="Assets\Scripts\dirt.cs" />
     <Compile Include="Assets\Scripts\ElectricController.cs" />
     <Compile Include="Assets\Scripts\FixedRelay1.cs" />
     <Compile Include="Assets\Scripts\FixedRelay2.cs" />
