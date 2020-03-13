@@ -448,7 +448,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -388, y: 203}
+  m_AnchoredPosition: {x: -223.6, y: 144.3}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &148029307
@@ -471,10 +471,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 17
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -922,7 +922,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1210,7 +1210,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -1328,6 +1328,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2497753513995289054, guid: a0df5af0b36471442878d2ad3769e284,
+        type: 3}
+      propertyPath: jumpAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: cf11a86b7d0f3b94f9d100fb56288e4b, type: 3}
     - target: {fileID: 2497753513995289055, guid: a0df5af0b36471442878d2ad3769e284,
         type: 3}
       propertyPath: relay1
@@ -1338,11 +1343,6 @@ PrefabInstance:
       propertyPath: relay2
       value: 
       objectReference: {fileID: 1980764523}
-    - target: {fileID: 2497753513995289054, guid: a0df5af0b36471442878d2ad3769e284,
-        type: 3}
-      propertyPath: jumpAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: cf11a86b7d0f3b94f9d100fb56288e4b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0df5af0b36471442878d2ad3769e284, type: 3}
 --- !u!1 &943117684
@@ -2276,6 +2276,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7044037242847418576, guid: 6ac53db2a02720d438b1715738a6e1e5,
+        type: 3}
+      propertyPath: jumpAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: cf11a86b7d0f3b94f9d100fb56288e4b, type: 3}
     - target: {fileID: 7044037242847418577, guid: 6ac53db2a02720d438b1715738a6e1e5,
         type: 3}
       propertyPath: relay1
@@ -2286,11 +2291,6 @@ PrefabInstance:
       propertyPath: relay2
       value: 
       objectReference: {fileID: 1980764523}
-    - target: {fileID: 7044037242847418576, guid: 6ac53db2a02720d438b1715738a6e1e5,
-        type: 3}
-      propertyPath: jumpAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: cf11a86b7d0f3b94f9d100fb56288e4b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ac53db2a02720d438b1715738a6e1e5, type: 3}
 --- !u!1 &1041098977
